@@ -28,12 +28,17 @@ pipeline {
                 sh 'mvn test'
             }
         }
+        stage('Debug Path') {
+            steps {
+                sh 'ls -ld /usr/local/Cellar/tomcat/10.1.10/libexec/webapps'
+            }
+        }
+
 
         stage('Deploy to Tomcat') {
             steps {
                 // Copy WAR file into Tomcat webapps directory
                 sh '''
-                echo $TOMCAT_HOME
                    cp target/employee-app-1.0.0.war $TOMCAT_HOME/webapps/
 
                    $TOMCAT_HOME/bin/shutdown.sh || true
