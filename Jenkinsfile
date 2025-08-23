@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        TOMCAT_HOME = "/usr/local/opt/tomcat/libexec"   // Change this to your Tomcat installation path
+        TOMCAT_HOME = "/usr/local/Cellar/tomcat/11.0.10/libexec"   // Change this to your Tomcat installation path
     }
 
     stages {
@@ -30,7 +30,9 @@ pipeline {
         }
         stage('Debug Path') {
             steps {
-                sh 'ls -ld /usr/local/Cellar/tomcat/10.1.10/libexec/webapps'
+                sh 'ls -ld /usr/local/Cellar/tomcat/11.0.10/libexec/webapps'
+
+
             }
         }
 
