@@ -47,7 +47,7 @@ pipeline {
                    $TOMCAT_HOME/bin/shutdown.sh || true
                    $TOMCAT_HOME/bin/startup.sh
 
-                   systemd java -jar target/employee-app-1.0.0.jar > employee-app.log 2>&1 &
+                   nohup java -jar target/employee-app-1.0.0.jar > employee-app.log 2>&1 &
                    echo "Application deployed successfully"
                 '''
             }
