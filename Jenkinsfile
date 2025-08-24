@@ -41,10 +41,14 @@ pipeline {
             steps {
                 // Copy WAR file into Tomcat webapps directory
                 sh '''
+                   pkill -f employee-app-1.0.0.jar || true
                    cp target/employee-app-1.0.0.jar $TOMCAT_HOME/webapps/
 
                    $TOMCAT_HOME/bin/shutdown.sh || true
                    $TOMCAT_HOME/bin/startup.sh
+
+                   systemd java -jar target/employee-app-1.0.0.jar > employee-app.log 2>&1 &
+                   echo "Application deployed successfully"
                 '''
             }
         }
