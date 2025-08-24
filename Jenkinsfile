@@ -41,7 +41,7 @@ pipeline {
             steps {
                 // Copy WAR file into Tomcat webapps directory
                 sh '''
-                   cp target/employee-app-1.0.0.war $TOMCAT_HOME/webapps/
+                   cp target/employee-app-1.0.0.jar $TOMCAT_HOME/webapps/
 
                    $TOMCAT_HOME/bin/shutdown.sh || true
                    $TOMCAT_HOME/bin/startup.sh

@@ -6,7 +6,7 @@
     <groupId>com.example</groupId>
     <artifactId>employee-app</artifactId>
     <version>1.0.0</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
